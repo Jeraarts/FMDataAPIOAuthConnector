@@ -3,7 +3,7 @@ OAuth Connector for the FileMaker Data API
 
 REQUIREMENTS
 
-- A FileMaker Server of minimum version 16.
+- A FileMaker Server 16 or higher installation.
 - PHP version 5.6 or higher must be installed.
 - The PHP curl extension must be enabled.
 - At least 1 OAuth Provider must be configured in the FileMaker Server Admin Console.
@@ -11,7 +11,7 @@ REQUIREMENTS
 
 INSTALLATION INSTRUCTIONS
 
-Copy the files and folders in the Document root of the Webserver on the FileMaker Server machine. The PHP code must live on the same machine as FileMaker Server.
+Copy the files and folders in (a subfolder of) the Document root of the Webserver on the FileMaker Server master machine in a Single machine setup, or on the worker machine in a multiple machine setup. The PHP code must live on the same machine as FileMaker Server.
 
 GETTING STARTED
 
