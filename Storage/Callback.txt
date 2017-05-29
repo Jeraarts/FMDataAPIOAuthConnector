@@ -1,0 +1,1 @@
+http://clickserver23.clickworks.eu/FMS16_REST_API_TEST/Example/GetCompaniesList.php
