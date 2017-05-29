@@ -1,3 +1,3 @@
 <?php
 
-	define ( 'SERVER', 'clickserver23.clickworks.eu');
+	define ( 'SERVER', 'someserver.yourdomain.org');
