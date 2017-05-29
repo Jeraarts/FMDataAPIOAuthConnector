@@ -19,4 +19,4 @@ First edit the Configuration.php and enter the hostname of the FileMaker Server.
 
 It is recommended to move the 'Storage' folder outside the document root of your webserver, so it cannot be compromised. You must adjust the FMDataAPIOAuthConnector class constant STORAGEFOLDERPATH to reflect this change. The current setup and configuration of storage works but is recommended for testing purposes only as it may expose Request Id and Identifier.
 
-To test the FMDataAPIOAuthConnector refer to the Start.php and GetCompaniesList.php files in the Example folder and adjust configuration so it works with a particular FileMaker database
+To test the FMDataAPIOAuthConnector refer to the Start.php and GetCompaniesList.php files in the Example folder and adjust configuration so it works with a particular FileMaker database.
