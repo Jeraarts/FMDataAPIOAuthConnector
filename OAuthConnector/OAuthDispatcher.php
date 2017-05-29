@@ -43,6 +43,7 @@
 		case 'GetIdentifier';
 			$identifier = $_REQUEST['identifier'] ;
 			$objFMDataAPIOAuthConnector = new FMDataAPIOAuthConnector(SERVER);
+			$objFMDataAPIOAuthConnector->StoreIdentifier($identifier);
 			$callbackURL = $objFMDataAPIOAuthConnector->GetApplicationCallbackURL();
 			
 			header('Location:' . $callbackURL);
