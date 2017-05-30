@@ -17,8 +17,9 @@
 		case 'Authenticate';
 			$callbackURL = isset($_REQUEST['callbackURL']) ? $_REQUEST['callbackURL'] : '' ;
 			$objFMDataAPIOAuthConnector = new FMDataAPIOAuthConnector(SERVER);
+			// Store the Client Application's callback URL to redirect to after the OAuth authentication process is done
 			$callbackURL = $objFMDataAPIOAuthConnector->SetApplicationCallbackURL($callbackURL);
-			// Display a list of OAuthListProviders; These are the OAuth providers configured in FileMAker Server
+			// Display a list of OAuthListProviders; These are the OAuth providers configured in FileMaker Server
 			header ( 'Location:../oAuthConnector/OAuthListProviders.php');
 			break;
 		
