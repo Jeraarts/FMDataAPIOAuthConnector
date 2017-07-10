@@ -15,7 +15,7 @@ Copy the files and folders in (a subfolder of) the Document root of the Webserve
 
 GETTING STARTED
 
-First edit the Configuration.php and enter the hostname of the FileMaker Server. It is important to know that this is the hostname as evaluated by the User Agent (i.e. a web browser) of the user of your application. If you use 'localhost', your application will only work if run on a User Agent on the FileMaker Server machine itselft, which may well work for testing.
+First edit the Configuration.php and enter the hostname of the FileMaker Server. It is important to know that this is the hostname as evaluated by the User Agent (i.e. a web browser) of the user of your application. If you use 'localhost', your application will only work if run on a User Agent on the FileMaker Server machine itself.
 
 It is recommended to move the 'Storage' folder outside the document root of your webserver, so it cannot be compromised. You must adjust the FMDataAPIOAuthConnector class constant STORAGEFOLDERPATH to reflect this change. The current setup and configuration of storage works but is recommended for testing purposes only as it may expose Request Id and Identifier.
 
