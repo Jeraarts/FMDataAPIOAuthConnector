@@ -1,24 +1,28 @@
 <?php
+
+	/*
+	* RETRIEVE REQUESTID AND IDENTIFIER NECESSARY TO RETRIEVE AN ACCESS TOKEN.
+	*/
+	
 	use  ClickWorks\FMDataAPIOAuthConnector;
 	
-	require_once ( '../Configuration.php') ;
 	require_once ( '../OAuthConnector/Class.FMDataAPIOAuthConnector.php') ;
-	
-	// Get Request Id from storage, assumed that this is handled by the oAuthConnector scripts first
-	$objFMDataAPIOAuthConnector = new FMDataAPIOAuthConnector(SERVER);
+	$objFMDataAPIOAuthConnector = new FMDataAPIOAuthConnector();
 	$requestId = $objFMDataAPIOAuthConnector->GetStoredRequestId();
 	$identifier = $objFMDataAPIOAuthConnector->GetStoredIdentifier();
 	
-	//-- FMS DATA API call: Authenticate by passing the oAuth Request Id and Identifier
-	$url = "https://" . SERVER . "/fmi/rest/api/auth/Companies";
+	/*
+	* YOUR APPLICATION LOGIC BELOW.
+	*/
 	
-	// POST data
+	$server = 'yourserver.yourdomain.org';
+	
+	//--  Authenticate
+	$url = "https://" . $server . "/fmi/rest/api/auth/Companies";
 	$arrData['oAuthRequestId'] = $requestId ;
 	$arrData['oAuthIdentifier'] = $identifier;
 	$arrData['layout'] = 'Companies';
 	$jsonData = json_encode($arrData) ;
-	
-	//echo $jsonData ; exit() ;
 	
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type:application/json','X-FM-Data-Login-Type:oauth')) ;
@@ -28,16 +32,12 @@
 	$output = curl_exec($ch) ;	
 	curl_close($ch) ;
 	
-	//print_r($output) ;
-	
 	// Parse the response and fetch the Access Token. Some error handling would be a great idea!
-	
 	$arrResponse = json_decode ($output, true) ;
-	//print_r($arrResponse) ;
 	$accessToken = $arrResponse['token'];
 	
-	//-- FMS DATA API call: Get a list of all records
-	$url = "https://" . SERVER . "/fmi/rest/api/record/Companies/Companies";
+	//--  Get data
+	$url = "https://" . $server . "/fmi/rest/api/record/YourDatabase/YourLayout";
 	
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type:application/json','FM-Data-Token:' . $accessToken)) ;
